@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="StockLookup">
+<head>
+	<meta charset="UTF-8">
+  <title>Look Up Any Stock Quotes</title>
+</head>
+<body>
+  <h1>STOCK QUOTES LOOK UP!</h1>
+	<script src="./node_modules/angular/angular.js"></script>
+  <script src="./app.js"></script>
+  
+	<div id='searchQuote'>
+	<form name="stockquoteForm" ng-submit='lookup()'>
+		<input type='text' ng-model='search' placeholder='Input Stock Quote Here!'>
+		<button>Search</button>
+	</form>
+	</div>
+
+
+
+</body>
+</html>
+
+<!-- Yahoo webservice: http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json -->
