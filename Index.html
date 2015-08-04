@@ -11,7 +11,7 @@
 
 	<div ng-view></div>
 	<div id='searchQuote' ng-controller='LookupCtrl'>
-		<form name="stockquoteForm" ng-submit='lookup()'>
+		<form name="stockquoteForm" ng-submit='stockLookup()'>
 			<input type='text' ng-model='search' placeholder='Type Stock Quote Here!'>
 			<button>Search</button>
 		</form>
@@ -19,7 +19,6 @@
 	<div class='stockTable'>
 		<table>
 			<tr>
-				<th>Id</th>
 				<th>Symbol</th>
 				<th>Ask</th>
 				<th>AverageDailyVolume</th>
@@ -34,7 +33,6 @@
 				<th>ChangeRealtime</th>
 				<th>AfterHoursChangeRealtime</th>
 				<th>DividendShare</th>
-				<th>LastTradeDate</th>
 				<th>LastTradeDate</th>
 				<th>TradeDate</th>
 				<th>EarningsShare</th>
@@ -53,121 +51,138 @@
 				<th>HoldingsGainRealtime</th>
 				<th>MoreInfo</th>
 				<th>OrderBookRealtime</th>
-				<th>MoreInfo</th>
-				<th>OrderBookRealtime</th>
-				<th>MarketCapitailization</th>
+				<th>MarketCapitalization</th>
 				<th>MarketCapRealtime</th>
 				<th>EBITDA</th>
 				<th>ChangeFromYearLow</th>
 				<th>PercentChangeFromYearLow</th>
+				<th>LastTradeRealtimeWithTime</th>
+				<th>ChangePercentRealtime</th>
+				<th>ChangeFromYearHigh</th>
+				<th>PercebtChangeFromYearHigh</th>
+				<th>LastTradeWithTime</th>
+				<th>LastTradePriceOnly</th>
+				<th>HighLimit</th>
+				<th>LowLimit</th>
+				<th>DaysRange</th>
+				<th>DaysRangeRealtime</th>
+				<th>FiftydayMovingAverage</th>
+				<th>TwoHundreddayMovingAverage</th>
+				<th>ChangeFromTwoHundreddayMovingAverage</th>
+				<th>PercentChangeFromTwoHundreddayMovingAverage</th>
+				<th>ChangeFromFiftydayMovingAverage</th>
+				<th>PercentChangeFromFiftydayMovingAverage</th>
+				<th>Name</th>
+				<th>Notes</th>
+				<th>Open</th>
+				<th>PreviousClose</th>
+				<th>PricePaid</th>
+				<th>ChangeinPercent</th>
+				<th>PriceSales</th>
+				<th>PriceBook</th>
+				<th>ExDividendDate</th>
+				<th>PERatioRealtime</th>
+				<th>PEGRatio</th>
+				<th>PriceEPSEstimateCurrentYear</th>
+				<th>Symbol</th>
+				<th>SharesOwned</th>
+				<th>LastTradeTime</th>
+				<th>TickerTrend</th>	
+				<th>OneyrTargetPrice</th>
+				<th>Volume</th>
+				<th>HoldingsValue</th>
+				<th>HoldingsValueRealtime</th>
+				<th>YearRange</th>
+				<th>DaysValueChange</th>
+				<th>DaysValueChangeRealtime</th>
+				<th>StockExchange</th>
+				<th>DividendYield</th>
+				<th>PercentChange</th>
 			</tr>
-			<tr ng-repeat="keys in data">
-				<td>{{$scope.results.quote.Symbol}}</td>
-				<td>{{Stock.Ask}}</td>
-				<td>{{Stock.AverageDailyVolume}}</td>
-				<td>{{Stock.Bid}}</td>
-				<td>{{Stock.AskRealtime}}</td>
-				<td>{{Stock.BidRealtime}}</td>
-				<td>{{Stock.BookValue}}</td>
-				<td>{{Stock.Change_PercentChange}}</td>
-				<td>{{Stock.Change}}</td>
-				<td>{{Stock.Commission}}</td>
-				<td>{{Stock.Currency}}</td>
-				<td>{{Stock.AfterHoursChangeRealtime}}</td>
-				<td>{{Stock.DividendShare}}</td>
-				<td>{{Stock.LastTradeDate}}</td>
-				<td>{{Stock.TradeDate}}</td>
-				<td>{{Stock.EarningsShare}}</td>
-				<td>{{Stock.ErrorIndicationreturnedforsymbolchangedinvalid}}</td>
-				<td>{{Stock.EPSEstimateCurrentYear}}</td>
-				<td>{{Stock.EPSEstimateNextYear}}</td>
-				<td>{{Stock.EPSEstimateNextQuarter}}</td>
-				<td>{{Stock.DaysLow}}</td>
-				<td>{{Stock.DaysHigh}}</td>
-				<td>{{Stock.YearLow}}</td>
-				<td>{{Stock.YearHigh}}</td>
-				<td>{{Stock.HoldingsGainPercent}}</td>
-				<td>{{Stock.AnnualizedGain}}</td>
-				<td>{{Stock.HoldingsGain}}</td>
-				<td>{{Stock.HoldingsGainPercentRealtime}}</td>
-				<td>{{Stock.HoldingsGainRealtime}}</td>
-				<td>{{Stock.MoreInfo}}</td>
-				<td>{{Stock.OrderBookRealtime}}</td>
-				<td>{{Stock.MoreInfo}}</td>
-				<td>{{Stock.OrderBookRealtime}}</td>
-				<td>{{Stock.MarketCapitailization}}</td>
-				<td>{{Stock.MarketCapRealtime}}</td>
-				<td>{{Stock.EBITDA}}</td>
-				<td>{{Stock.ChangeFromYearLow}}</td>
-				<td>{{Stock.PercentChangeFromYearLow}}</td>
 
 
+			<tr ng-repeat="keys in stockQuotes">
+				<td>{{keys.Symbol}}</td>
+				<td>{{keys.Ask}}</td>
+				<td>{{keys.AverageDailyVolume}}</td>
+				<td>{{keys.Bid}}</td>
+				<td>{{keys.AskRealtime}}</td>
+				<td>{{keys.BidRealtime}}</td>
+				<td>{{keys.BookValue}}</td>
+				<td>{{keys.Change_PercentChange}}</td>
+				<td>{{keys.Change}}</td>
+				<td>{{keys.Commission}}</td>
+				<td>{{keys.Currency}}</td>
+				<td>{{keys.ChangeRealtime}}</td>
+				<td>{{keys.AfterHoursChangeRealtime}}</td>
+				<td>{{keys.DividendShare}}</td>
+				<td>{{keys.LastTradeDate}}</td>
+				<td>{{keys.TradeDate}}</td>
+				<td>{{keys.EarningsShare}}</td>
+				<td>{{keys.ErrorIndicationreturnedforsymbolchangedinvalid}}</td>
+				<td>{{keys.EPSEstimateCurrentYear}}</td>
+				<td>{{keys.EPSEstimateNextYear}}</td>
+				<td>{{keys.EPSEstimateNextQuarter}}</td>
+				<td>{{keys.DaysLow}}</td>
+				<td>{{keys.DaysHigh}}</td>
+				<td>{{keys.YearLow}}</td>
+				<td>{{keys.YearHigh}}</td>
+				<td>{{keys.HoldingsGainPercent}}</td>
+				<td>{{keys.AnnualizedGain}}</td>
+				<td>{{keys.HoldingsGain}}</td>
+				<td>{{keys.HoldingsGainPercentRealtime}}</td>
+				<td>{{keys.HoldingsGainRealtime}}</td>
+				<td>{{keys.MoreInfo}}</td>
+				<td>{{keys.OrderBookRealtime}}</td>
+				<td>{{keys.MarketCapitalization}}</td>
+				<td>{{keys.MarketCapRealtime}}</td>
+				<td>{{keys.EBITDA}}</td>
+				<td>{{keys.ChangeFromYearLow}}</td>
+				<td>{{keys.PercentChangeFromYearLow}}</td>
+				<td>{{keys.LastTradeRealtimeWitdTime}}</td>
+				<td>{{keys.ChangePercentRealtime}}</td>
+				<td>{{keys.ChangeFromYearHigh}}</td>
+				<td>{{keys.PercebtChangeFromYearHigh}}</td>
+				<td>{{keys.LastTradeWitdTime}}</td>
+				<td>{{keys.LastTradePriceOnly}}</td>
+				<td>{{keys.HighLimit}}</td>
+				<td>{{keys.LowLimit}}</td>
+				<td>{{keys.DaysRange}}</td>
+				<td>{{keys.DaysRangeRealtime}}</td>
+				<td>{{keys.FiftydayMovingAverage}}</td>
+				<td>{{keys.TwoHundreddayMovingAverage}}</td>
+				<td>{{keys.ChangeFromTwoHundreddayMovingAverage}}</td>
+				<td>{{keys.PercentChangeFromTwoHundreddayMovingAverage}}</td>
+				<td>{{keys.ChangeFromFiftydayMovingAverage}}</td>
+				<td>{{keys.PercentChangeFromFiftydayMovingAverage}}</td>
+				<td>{{keys.Name}}</td>
+				<td>{{keys.Notes}}</td>
+				<td>{{keys.Open}}</td>
+				<td>{{keys.PreviousClose}}</td>
+				<td>{{keys.PricePaid}}</td>
+				<td>{{keys.ChangeinPercent}}</td>
+				<td>{{keys.PriceSales}}</td>
+				<td>{{keys.PriceBook}}</td>
+				<td>{{keys.ExDividendDate}}</td>
+				<td>{{keys.PERatioRealtime}}</td>
+				<td>{{keys.PEGRatio}}</td>
+				<td>{{keys.PriceEPSEstimateCurrentYear}}</td>
+				<td>{{keys.Symbol}}</td>
+				<td>{{keys.SharesOwned}}</td>
+				<td>{{keys.LastTradeTime}}</td>
+				<td>{{keys.TickerTrend}}</td>	
+				<td>{{keys.OneyrTargetPrice}}</td>
+				<td>{{keys.Volume}}</td>
+				<td>{{keys.HoldingsValue}}</td>
+				<td>{{keys.HoldingsValueRealtime}}</td>
+				<td>{{keys.YearRange}}</td>
+				<td>{{keys.DaysValueChange}}</td>
+				<td>{{keys.DaysValueChangeRealtime}}</td>
+				<td>{{keys.StockExchange}}</td>
+				<td>{{keys.DividendYield}}</td>
+				<td>{{keys.PercentChange}}</td>
 			</tr>
 		</table>
-<!--
-				"DaysLow": "117.52",
-				"DaysHigh": "122.57",
-				"YearLow": "93.28",
-				"YearHigh": "134.54",
-				"HoldingsGainPercent": null,
-				"AnnualizedGain": null,
-				"HoldingsGain": null,
-				"HoldingsGainPercentRealtime": null,
-				"HoldingsGainRealtime": null,
-				"MoreInfo": null,
-				"OrderBookRealtime": null,
-				"MarketCapitalization": "675.43B",
-				"MarketCapRealtime": null,
-				"EBITDA": "77.88B",
-				"ChangeFromYearLow": "25.16",
-				"PercentChangeFromYearLow": "+26.97%",
-				"LastTradeRealtimeWithTime": null,
-				"ChangePercentRealtime": null,
-				"ChangeFromYearHigh": "-16.10",
-				"PercebtChangeFromYearHigh": "-11.97%",
-				"LastTradeWithTime": "4:00pm - <b>118.44</b>",
-				"LastTradePriceOnly": "118.44",
-				"HighLimit": null,
-				"LowLimit": null,
-				"DaysRange": "117.52 - 122.57",
-				"DaysRangeRealtime": null,
-				"FiftydayMovingAverage": "125.69",
-				"TwoHundreddayMovingAverage": "125.65",
-				"ChangeFromTwoHundreddayMovingAverage": "-7.21",
-				"PercentChangeFromTwoHundreddayMovingAverage": "-5.74%",
-				"ChangeFromFiftydayMovingAverage": "-7.25",
-				"PercentChangeFromFiftydayMovingAverage": "-5.77%",
-				"Name": "Apple Inc.",
-				"Notes": null,
-				"Open": "121.50",
-				"PreviousClose": "121.30",
-				"PricePaid": null,
-				"ChangeinPercent": "-2.36%",
-				"PriceSales": "3.08",
-				"PriceBook": "5.51",
-				"ExDividendDate": "5/7/2015",
-				"PERatio": "13.70",
-				"DividendPayDate": "8/13/2015",
-				"PERatioRealtime": null,
-				"PEGRatio": "0.90",
-				"PriceEPSEstimateCurrentYear": "12.99",
-				"PriceEPSEstimateNextYear": "12.12",
-				"Symbol": "AAPL",
-				"SharesOwned": null,
-				"ShortRatio": "1.50",
-				"LastTradeTime": "4:00pm",
-				"TickerTrend": null,
-				"OneyrTargetPrice": "147.72",
-				"Volume": "69975968",
-				"HoldingsValue": null,
-				"HoldingsValueRealtime": null,
-				"YearRange": "93.28 - 134.54",
-				"DaysValueChange": null,
-				"DaysValueChangeRealtime": null,
-				"StockExchange": "NMS",
-				"DividendYield": "1.70",
-				"PercentChange": "-2.36%"
--->
 		
 		</div>
 	</div>
