@@ -7,9 +7,9 @@
 </head>
 <body>
 	<h1>STOCK QUOTES LOOK UP!</h1>
-	<script src="./node_modules/angular/angular.js"></script>
-	<script src="./services.js"></script>
 
+
+	<div ng-view></div>
 	<div id='searchQuote' ng-controller='LookupCtrl'>
 		<form name="stockquoteForm" ng-submit='lookup()'>
 			<input type='text' ng-model='search' placeholder='Type Stock Quote Here!'>
@@ -32,12 +32,37 @@
 				<th>Commission</th>
 				<th>Currency</th>
 				<th>ChangeRealtime</th>
-				<th>Ask</th>
-				<th>Ask</th>
+				<th>AfterHoursChangeRealtime</th>
+				<th>DividendShare</th>
+				<th>LastTradeDate</th>
+				<th>LastTradeDate</th>
+				<th>TradeDate</th>
+				<th>EarningsShare</th>
+				<th>ErrorIndicationreturnedforsymbolchangedinvalid</th>
+				<th>EPSEstimateCurrentYear</th>
+				<th>EPSEstimateNextYear</th>
+				<th>EPSEstimateNextQuarter</th>
+				<th>DaysLow</th>
+				<th>DaysHigh</th>
+				<th>YearLow</th>
+				<th>YearHigh</th>
+				<th>HoldingsGainPercent</th>
+				<th>AnnualizedGain</th>
+				<th>HoldingsGain</th>
+				<th>HoldingsGainPercentRealtime</th>
+				<th>HoldingsGainRealtime</th>
+				<th>MoreInfo</th>
+				<th>OrderBookRealtime</th>
+				<th>MoreInfo</th>
+				<th>OrderBookRealtime</th>
+				<th>MarketCapitailization</th>
+				<th>MarketCapRealtime</th>
+				<th>EBITDA</th>
+				<th>ChangeFromYearLow</th>
+				<th>PercentChangeFromYearLow</th>
 			</tr>
-			<tr ng-repeat="keys in Stock">
-				<td>{{Stock.Id}}</td>
-				<td>{{Stock.Symbol}}</td>
+			<tr ng-repeat="keys in data">
+				<td>{{$scope.results.quote.Symbol}}</td>
 				<td>{{Stock.Ask}}</td>
 				<td>{{Stock.AverageDailyVolume}}</td>
 				<td>{{Stock.Bid}}</td>
@@ -48,7 +73,7 @@
 				<td>{{Stock.Change}}</td>
 				<td>{{Stock.Commission}}</td>
 				<td>{{Stock.Currency}}</td>
-				<td>{{Stock.AverHoursChangeRealtime}}</td>
+				<td>{{Stock.AfterHoursChangeRealtime}}</td>
 				<td>{{Stock.DividendShare}}</td>
 				<td>{{Stock.LastTradeDate}}</td>
 				<td>{{Stock.TradeDate}}</td>
@@ -147,8 +172,8 @@
 		</div>
 	</div>
 
-	<script src="./app.js"></script>
-
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="app.js"></script>
 
 </body>
 </html>
