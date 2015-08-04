@@ -1,9 +1,22 @@
 body {
+	background-color: #F5F5DC;
 	font-family: arial;
 } 
 
+.img-rounded {
+	margin-left: auto;
+	margin-right: auto;
+	height: 250px;
+	width: 1440px;
+}
+
 h1 {
+	position: float;
 	color: green;
+}
+
+.searchBar {
+	width: 30%;
 }
 
 table, th, td {
@@ -12,11 +25,15 @@ table, th, td {
     color: black;
 }
 
+th, td {
+    padding: 10px;
+}
+
 th {
 	background-color: green;
 	color: white;
 }
 
-th, td {
-    padding: 10px;
+tr {
+	background-color: #CCFFCC;
 }

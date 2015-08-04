@@ -6,120 +6,124 @@
 	<link rel="stylesheet" type="text/css" href="./styles.css" />
 </head>
 <body>
+	<img src="Business_Logo.jpg" class="img-rounded">
 	<h1>STOCK QUOTES LOOK UP!</h1>
 
 
 	<div ng-view></div>
 	<div id='searchQuote' ng-controller='LookupCtrl'>
-		<form name="stockquoteForm" ng-submit='stockLookup()'>
-			<input type='text' ng-model='search' placeholder='Type Stock Quote Here!'>
+		<form name="stockquoteForm" ng-submit='stockLookup()' ng-submit='highlight()'>
+			<input class='searchBar' type='text' ng-model='search' placeholder='Type Stock Symbol Here!'>
 			<button>Search</button>
 		</form>
+
 		<br>
 	<div class='stockTable'>
-		<table>
-			<tr>
-				<th>Symbol</th>
-				<th>Ask</th>
-				<th>AverageDailyVolume</th>
-				<th>Bid</th>
-				<th>AskRealtime</th>
-				<th>BidRealtime</th>
-				<th>BookValue</th>
-				<th>Change_PercentChange</th>
-				<th>Change</th>
-				<th>Commission</th>
-				<th>Currency</th>
-				<th>ChangeRealtime</th>
-				<th>AfterHoursChangeRealtime</th>
-				<th>DividendShare</th>
-				<th>LastTradeDate</th>
-				<th>TradeDate</th>
-				<th>EarningsShare</th>
-				<th>ErrorIndicationreturnedforsymbolchangedinvalid</th>
-				<th>EPSEstimateCurrentYear</th>
-				<th>EPSEstimateNextYear</th>
-				<th>EPSEstimateNextQuarter</th>
-				<th>DaysLow</th>
-				<th>DaysHigh</th>
-				<th>YearLow</th>
-				<th>YearHigh</th>
-				<th>HoldingsGainPercent</th>
-				<th>AnnualizedGain</th>
-				<th>HoldingsGain</th>
-				<th>HoldingsGainPercentRealtime</th>
-				<th>HoldingsGainRealtime</th>
-				<th>MoreInfo</th>
-				<th>OrderBookRealtime</th>
-				<th>MarketCapitalization</th>
-				<th>MarketCapRealtime</th>
-				<th>EBITDA</th>
-				<th>ChangeFromYearLow</th>
-				<th>PercentChangeFromYearLow</th>
-				<th>LastTradeRealtimeWithTime</th>
-				<th>ChangePercentRealtime</th>
-				<th>ChangeFromYearHigh</th>
-				<th>PercebtChangeFromYearHigh</th>
-				<th>LastTradeWithTime</th>
-				<th>LastTradePriceOnly</th>
-				<th>HighLimit</th>
-				<th>LowLimit</th>
-				<th>DaysRange</th>
-				<th>DaysRangeRealtime</th>
-				<th>FiftydayMovingAverage</th>
-				<th>TwoHundreddayMovingAverage</th>
-				<th>ChangeFromTwoHundreddayMovingAverage</th>
-				<th>PercentChangeFromTwoHundreddayMovingAverage</th>
-				<th>ChangeFromFiftydayMovingAverage</th>
-				<th>PercentChangeFromFiftydayMovingAverage</th>
-				<th>Name</th>
-				<th>Notes</th>
-				<th>Open</th>
-				<th>PreviousClose</th>
-				<th>PricePaid</th>
-				<th>ChangeinPercent</th>
-				<th>PriceSales</th>
-				<th>PriceBook</th>
-				<th>ExDividendDate</th>
-				<th>PERatioRealtime</th>
-				<th>PEGRatio</th>
-				<th>PriceEPSEstimateCurrentYear</th>
-				<th>Symbol</th>
-				<th>SharesOwned</th>
-				<th>LastTradeTime</th>
-				<th>TickerTrend</th>	
-				<th>OneyrTargetPrice</th>
-				<th>Volume</th>
-				<th>HoldingsValue</th>
-				<th>HoldingsValueRealtime</th>
-				<th>YearRange</th>
-				<th>DaysValueChange</th>
-				<th>DaysValueChangeRealtime</th>
-				<th>StockExchange</th>
-				<th>DividendYield</th>
-				<th>PercentChange</th>
-			</tr>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Symbol</th>
+					<th>Ask</th>
+					<th>AverageDailyVolume</th>
+					<th>Bid</th>
+					<!-- <th>AskRealtime</th> -->
+					<!-- <th>BidRealtime</th> -->
+					<th>BookValue</th>
+					<th>Change_PercentChange</th>
+					<th>Change</th>
+					<!-- <th>Commission</th> -->
+					<th>Currency</th>
+					<!-- <th>ChangeRealtime</th> -->
+					<!-- <th>AfterHoursChangeRealtime</th> -->
+					<th>DividendShare</th>
+					<th>LastTradeDate</th>
+					<!-- <th>TradeDate</th> -->
+					<th>EarningsShare</th>
+					<!-- <th>ErrorIndicationreturnedforsymbolchangedinvalid</th> -->
+					<th>EPSEstimateCurrentYear</th>
+					<th>EPSEstimateNextYear</th>
+					<th>EPSEstimateNextQuarter</th>
+					<th>DaysLow</th>
+					<th>DaysHigh</th>
+					<th>YearLow</th>
+					<th>YearHigh</th>
+					<!-- <th>HoldingsGainPercent</th> -->
+					<!-- <th>AnnualizedGain</th> -->
+					<!-- <th>HoldingsGain</th> -->
+					<!-- <th>HoldingsGainPercentRealtime</th> -->
+					<!-- <th>HoldingsGainRealtime</th> -->
+					<!-- <th>MoreInfo</th> -->
+					<!-- <th>OrderBookRealtime</th> -->
+					<th>MarketCapitalization</th>
+					<!-- <th>MarketCapRealtime</th> -->
+					<th>EBITDA</th>
+					<th>ChangeFromYearLow</th>
+					<th>PercentChangeFromYearLow</th>
+					<!-- <th>LastTradeRealtimeWithTime</th> -->
+					<!-- <th>ChangePercentRealtime</th> -->
+					<th>ChangeFromYearHigh</th>
+					<th>PercebtChangeFromYearHigh</th>
+					<!-- <th>LastTradeWithTime</th> -->
+					<th>LastTradePriceOnly</th>
+					<!-- <th>HighLimit</th> -->
+					<!-- <th>LowLimit</th> -->
+					<th>DaysRange</th>
+					<!-- <th>DaysRangeRealtime</th> -->
+					<th>FiftydayMovingAverage</th>
+					<th>TwoHundreddayMovingAverage</th>
+					<th>ChangeFromTwoHundreddayMovingAverage</th>
+					<th>PercentChangeFromTwoHundreddayMovingAverage</th>
+					<th>ChangeFromFiftydayMovingAverage</th>
+					<th>PercentChangeFromFiftydayMovingAverage</th>
+					<th>Name</th>
+					<!-- <th>Notes</th> -->
+					<th>Open</th>
+					<th>PreviousClose</th>
+					<!-- <th>PricePaid</th> -->
+					<th>ChangeinPercent</th>
+					<th>PriceSales</th>
+					<th>PriceBook</th>
+					<th>ExDividendDate</th>
+					<!-- <th>PERatioRealtime</th> -->
+					<th>PEGRatio</th>
+					<th>PriceEPSEstimateCurrentYear</th>
+					<th>Symbol</th>
+					<!-- <th>SharesOwned</th> -->
+					<th>LastTradeTime</th>
+					<!-- <th>TickerTrend</th>	 -->
+					<th>OneyrTargetPrice</th>
+					<th>Volume</th>
+					<!-- <th>HoldingsValue</th> -->
+					<!-- <th>HoldingsValueRealtime</th> -->
+					<th>YearRange</th>
+					<!-- <th>DaysValueChange</th> -->
+					<!-- <th>DaysValueChangeRealtime</th> -->
+					<th>StockExchange</th>
+					<th>DividendYield</th>
+					<th>PercentChange</th>
+				</tr>
+			</thead>	
 
 
-			<tr ng-repeat="keys in stockQuotes">
+			<tr class="rows" ng-repeat="keys in stockQuotes" ng-click="remove($index)" ng-class="keys.Change < 0 ? 'text-danger' : 'text-success'">
 				<td>{{keys.Symbol}}</td>
 				<td>{{keys.Ask}}</td>
 				<td>{{keys.AverageDailyVolume}}</td>
 				<td>{{keys.Bid}}</td>
-				<td>{{keys.AskRealtime}}</td>
-				<td>{{keys.BidRealtime}}</td>
+				<!-- <td>{{keys.AskRealtime}}</td> -->
+				<!-- <td>{{keys.BidRealtime}}</td> -->
 				<td>{{keys.BookValue}}</td>
 				<td>{{keys.Change_PercentChange}}</td>
 				<td>{{keys.Change}}</td>
-				<td>{{keys.Commission}}</td>
+				<!-- <td>{{keys.Commission}}</td> -->
 				<td>{{keys.Currency}}</td>
-				<td>{{keys.ChangeRealtime}}</td>
-				<td>{{keys.AfterHoursChangeRealtime}}</td>
+				<!-- <td>{{keys.ChangeRealtime}}</td> -->
+				<!-- <td>{{keys.AfterHoursChangeRealtime}}</td> -->
 				<td>{{keys.DividendShare}}</td>
 				<td>{{keys.LastTradeDate}}</td>
-				<td>{{keys.TradeDate}}</td>
+				<!-- <td>{{keys.TradeDate}}</td> -->
 				<td>{{keys.EarningsShare}}</td>
-				<td>{{keys.ErrorIndicationreturnedforsymbolchangedinvalid}}</td>
+				<!-- <td>{{keys.ErrorIndicationreturnedforsymbolchangedinvalid}}</td> -->
 				<td>{{keys.EPSEstimateCurrentYear}}</td>
 				<td>{{keys.EPSEstimateNextYear}}</td>
 				<td>{{keys.EPSEstimateNextQuarter}}</td>
@@ -127,28 +131,28 @@
 				<td>{{keys.DaysHigh}}</td>
 				<td>{{keys.YearLow}}</td>
 				<td>{{keys.YearHigh}}</td>
-				<td>{{keys.HoldingsGainPercent}}</td>
-				<td>{{keys.AnnualizedGain}}</td>
-				<td>{{keys.HoldingsGain}}</td>
-				<td>{{keys.HoldingsGainPercentRealtime}}</td>
-				<td>{{keys.HoldingsGainRealtime}}</td>
-				<td>{{keys.MoreInfo}}</td>
-				<td>{{keys.OrderBookRealtime}}</td>
+				<!-- <td>{{keys.HoldingsGainPercent}}</td> -->
+				<!-- <td>{{keys.AnnualizedGain}}</td> -->
+				<!-- <td>{{keys.HoldingsGain}}</td> -->
+				<!-- <td>{{keys.HoldingsGainPercentRealtime}}</td> -->
+				<!-- <td>{{keys.HoldingsGainRealtime}}</td> -->
+				<!-- <td>{{keys.MoreInfo}}</td> -->
+				<!-- <td>{{keys.OrderBookRealtime}}</td> -->
 				<td>{{keys.MarketCapitalization}}</td>
-				<td>{{keys.MarketCapRealtime}}</td>
+				<!-- <td>{{keys.MarketCapRealtime}}</td> -->
 				<td>{{keys.EBITDA}}</td>
 				<td>{{keys.ChangeFromYearLow}}</td>
 				<td>{{keys.PercentChangeFromYearLow}}</td>
-				<td>{{keys.LastTradeRealtimeWitdTime}}</td>
-				<td>{{keys.ChangePercentRealtime}}</td>
+				<!-- <td>{{keys.LastTradeRealtimeWitdTime}}</td> -->
+				<!-- <td>{{keys.ChangePercentRealtime}}</td> -->
 				<td>{{keys.ChangeFromYearHigh}}</td>
 				<td>{{keys.PercebtChangeFromYearHigh}}</td>
-				<td>{{keys.LastTradeWitdTime}}</td>
+				<!-- <td>{{keys.LastTradeWitdTime}}</td> -->
 				<td>{{keys.LastTradePriceOnly}}</td>
-				<td>{{keys.HighLimit}}</td>
-				<td>{{keys.LowLimit}}</td>
+				<!-- <td>{{keys.HighLimit}}</td> -->
+				<!-- <td>{{keys.LowLimit}}</td> -->
 				<td>{{keys.DaysRange}}</td>
-				<td>{{keys.DaysRangeRealtime}}</td>
+				<!-- <td>{{keys.DaysRangeRealtime}}</td> -->
 				<td>{{keys.FiftydayMovingAverage}}</td>
 				<td>{{keys.TwoHundreddayMovingAverage}}</td>
 				<td>{{keys.ChangeFromTwoHundreddayMovingAverage}}</td>
@@ -156,28 +160,28 @@
 				<td>{{keys.ChangeFromFiftydayMovingAverage}}</td>
 				<td>{{keys.PercentChangeFromFiftydayMovingAverage}}</td>
 				<td>{{keys.Name}}</td>
-				<td>{{keys.Notes}}</td>
+				<!-- <td>{{keys.Notes}}</td> -->
 				<td>{{keys.Open}}</td>
 				<td>{{keys.PreviousClose}}</td>
-				<td>{{keys.PricePaid}}</td>
+				<!-- <td>{{keys.PricePaid}}</td> -->
 				<td>{{keys.ChangeinPercent}}</td>
 				<td>{{keys.PriceSales}}</td>
 				<td>{{keys.PriceBook}}</td>
 				<td>{{keys.ExDividendDate}}</td>
-				<td>{{keys.PERatioRealtime}}</td>
+				<!-- <td>{{keys.PERatioRealtime}}</td> -->
 				<td>{{keys.PEGRatio}}</td>
 				<td>{{keys.PriceEPSEstimateCurrentYear}}</td>
 				<td>{{keys.Symbol}}</td>
-				<td>{{keys.SharesOwned}}</td>
+				<!-- <td>{{keys.SharesOwned}}</td> -->
 				<td>{{keys.LastTradeTime}}</td>
-				<td>{{keys.TickerTrend}}</td>	
+				<!-- <td>{{keys.TickerTrend}}</td>	 -->
 				<td>{{keys.OneyrTargetPrice}}</td>
 				<td>{{keys.Volume}}</td>
-				<td>{{keys.HoldingsValue}}</td>
-				<td>{{keys.HoldingsValueRealtime}}</td>
+				<!-- <td>{{keys.HoldingsValue}}</td> -->
+				<!-- <td>{{keys.HoldingsValueRealtime}}</td> -->
 				<td>{{keys.YearRange}}</td>
-				<td>{{keys.DaysValueChange}}</td>
-				<td>{{keys.DaysValueChangeRealtime}}</td>
+				<!-- <td>{{keys.DaysValueChange}}</td> -->
+				<!-- <td>{{keys.DaysValueChangeRealtime}}</td> -->
 				<td>{{keys.StockExchange}}</td>
 				<td>{{keys.DividendYield}}</td>
 				<td>{{keys.PercentChange}}</td>
@@ -188,6 +192,7 @@
 	</div>
 
 	<script src="node_modules/angular/angular.js"></script>
+	<script src="boostrap/dist/js/bootstrap.min.js"></script>
 	<script src="app.js"></script>
 
 </body>
