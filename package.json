@@ -1,0 +1,28 @@
+{
+  "name": "stock-block",
+  "version": "1.0.0",
+  "description": "lookup stocks",
+  "main": "server.js",
+  "dependencies": {
+    "angular": "^1.4.3",
+    "bootstrap": "^3.3.5",
+    "express": "^4.13.3",
+    "http-server": "^0.8.0",
+    "jquery": "^2.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kent10ou/Stock-Price-Lookup.git"
+  },
+  "author": "Kent Ou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kent10ou/Stock-Price-Lookup/issues"
+  },
+  "homepage": "https://github.com/kent10ou/Stock-Price-Lookup#readme"
+}
